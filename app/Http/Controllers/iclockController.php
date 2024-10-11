@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\Attendance;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Throwable;
+
 use Illuminate\Support\Facades\DB;
 
 
@@ -24,6 +26,7 @@ public function handshake(Request $request)
         'sn' => $request->input('SN'),
         'option' => $request->input('option'),
     ];
+
     DB::table('device_log')->insert($data);
 
     // update status device
@@ -58,7 +61,7 @@ public function handshake(Request $request)
         
         //DB::connection()->enableQueryLog();
         $content['url'] = json_encode($request->all());
-        $content['data'] = $request->getContent();;
+        $content['data'] = $request->getContent();
         DB::table('finger_log')->insert($content);
         try {
             // $post_content = $request->getContent();

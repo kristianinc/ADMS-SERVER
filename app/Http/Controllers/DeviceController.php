@@ -6,7 +6,7 @@ use Yajra\DataTables\Facades\Datatables;
 use Illuminate\Http\Request;
 use App\Models\Device;
 use App\Models\Attendance;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class DeviceController extends Controller
 {
